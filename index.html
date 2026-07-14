@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CapMinds - Calendar</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- header -->
+<header class="header">
+  <div class="logo-box">
+        <img src="./assets/header/log.svg" alt="" height="40.17px" width="40.17px"> <span class="logo-text">CAPMINDS</span>
+  </div>
+  <button class="book-appointment-btn" id="bookAppointmentBtn">+ Book Appointment</button>
+</header>
+
+<div class="app-body">
+
+<!-- sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <button class="collapse-btn" id="collapseBtn" title="Collapse sidebar">
+      <img src="./assets/sidebar/collapse.svg" alt="">
+    </button>
+
+    <nav class="sidebar-nav">
+      <a href="calendar.html" class="nav-item active">
+       <img src="./assets/sidebar/Vector.svg" alt="">
+        <span class="nav-label">Calendar</span>
+      </a>
+      <a href="dashboard.html" class="nav-item">
+      <img src="./assets/sidebar/Vector (1).svg" alt="">
+        <span class="nav-label">Dashboard</span>
+      </a>
+    </nav>
+  </aside>
+<!-- main content -->
+  <main class="main-content">
+
+    <div class="calendar-toolbar">
+      <button class="toolbar-btn" id="prevMonthBtn">&lsaquo;</button>
+
+      <div class="current-date-box">
+      <img src="./assets/practice/calendar.svg" alt="">
+        <span id="currentDateText">January 18, 2023</span>
+      </div>
+
+      <button class="toolbar-btn" id="nextMonthBtn">&rsaquo;</button>
+      <button class="toolbar-btn today-btn" id="todayBtn">Today</button>
+
+      <select class="view-select" id="viewSelect">
+        <option value="month">Month</option>
+        <option value="week">Week</option>
+        <option value="day">Day</option>
+      </select>
+    </div>
+
+    <div class="doctor-name-row">
+      <span id="doctorNameLabel">James Marry</span>
+    </div>
+
+    <div class="calendar-days-header">
+      <div>SUNDAY</div>
+      <div>MONDAY</div>
+      <div>TUESDAY</div>
+      <div>WEDNESDAY</div>
+      <div>THURSDAY</div>
+      <div>FRIDAY</div>
+      <div>SATURDAY</div>
+    </div>
+
+    <div class="calendar-grid" id="calendarGrid"></div>
+
+  </main>
+</div>
+
+<!-- appointmet model -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>Schedule Appointment</h2>
+      <button type="button" class="modal-close-btn" id="closeModalBtn">&times;</button>
+    </div>
+
+    <form id="appointmentForm">
+      <input type="hidden" id="appointmentId">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="patientName">
+           <img src="./assets/popup/users.svg" alt=""> 
+           <input type="text"  id="patientName" placeholder="Patient Name" required>
+          </label>
+         
+        </div>
+        <div class="form-group">
+          <label for="doctorName">
+           <img src="./assets/popup/users.svg" alt=""> <input type="text" id="doctorName" placeholder="Doctor Name" required>
+          </label>
+       
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="hospitalName">
+           <img src="./assets/popup/Location pin.svg" alt=""><input type="text" id="hospitalName" placeholder="Hospital Name">
+          </label>
+          
+        </div>
+        <div class="form-group">
+          <label for="specialty">
+           <img src="./assets/popup/fontisto_doctor.svg" alt="">   <input type="text" id="specialty" placeholder="Specialty">
+          </label>
+       
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="appointmentDate">
+            <img src="./assets/popup/Vector.svg" alt=""><input type="date" id="appointmentDate" required placeholder=" Select Date">
+          </label>
+          
+        </div>
+        <div class="form-group">
+          <label for="appointmentTime">
+          <img src="./assets/popup/Access time.svg" alt=""> <input type="time" id="appointmentTime" required placeholder="Select Time">
+          </label>
+         
+        </div>
+      </div>
+
+      <div class="form-group full-width">
+        <label for="reason">Reason</label>
+        <textarea id="reason" rows="2" ></textarea>
+      </div>
+
+      <p class="error-message" id="formErrorMsg"></p>
+
+      <div class="modal-footer">
+        <button type="button" class="cancel-btn" id="cancelBtn">Cancel</button>
+        <button type="submit" class="save-btn" id="saveBtn">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
